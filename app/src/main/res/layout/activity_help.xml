@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/paintbackground"
+    tools:context="edu.orangecoastcollege.cs273.pdavis11.paintestimator.HelpActivity">
+
+    <TextView
+        android:id="@+id/estimatedPaintTextView"
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/estimated_paint"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/estimatedPaintTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:text="@string/return_btn"
+        android:onClick="goToMainActivity"/>
+
+    <TextView
+        android:id="@+id/helpTextView"
+        android:layout_width="300dp"
+        android:layout_height="460dp"
+        android:layout_gravity="center_vertical|fill_vertical"
+        android:text="@string/help_text"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/returnButton"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

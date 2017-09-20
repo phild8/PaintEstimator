@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Paint Estimator</string>
 
     <string name="enter_dimensions">Enter the dimensions of the room in feet.</string>
@@ -17,6 +16,11 @@
 
     <string name="gallons">Gallons</string>
     <string name="return_btn">Input Room Dimensions</string>
+
+    <string name="interior_surface_area_text">Interior surface area:</string>
+    <string name="gallons_needed_text">Gallons needed:</string>
+
+    <string name="estimated_paint">Estimated Paint Required: 0.0 gallons</string>
 
     <!-- HELP TEXT -->
     <string name="help_text">
