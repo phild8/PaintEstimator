@@ -8,7 +8,19 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
+/**
+ * The controller. Initializes the views of and calls methods to send to the modal for
+ * processing. Returns calculations of painted rooms and sends the info the view to display
+ * the calculated return for the user to read.
+ *
+ * @author Phillip Davis
+ * @version 1
+ */
 public class MainActivity extends AppCompatActivity {
+
+    private static final DecimalFormat df = new DecimalFormat(".#");
 
     // member variable for the Views
     private EditText mLengthEditText;
@@ -26,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     // Member variable for the SharedPreferences
     private SharedPreferences mPrefs;
 
+    /**
+     * Initializes the views to write and read values for the user.
+     */
     private void initializeViews()
     {
         mLengthEditText = (EditText) findViewById(R.id.lengthEditText);
@@ -37,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Loads the saved preferences of the user. Loads 0 or 0.0 for all fields
+     */
     private void loadSharedPreference()
     {
         mPrefs = getSharedPreferences("edu.orangecoastcollege.cs273.pdavis11.PaintEstimator", MODE_PRIVATE);
@@ -60,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Saves new preferences that the user has selected for the fields.
+     */
     private void saveSharedPreferences()
     {
         SharedPreferences.Editor editor = mPrefs.edit();
@@ -74,7 +95,10 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
     }
 
-
+    /**
+     * Starts the TextViews, EditFields, and Buttons for the user to interact with.
+     * @param savedInstanceState the saved instance that user has selected
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +108,12 @@ public class MainActivity extends AppCompatActivity {
         loadSharedPreference();
     }
 
-    protected void computeGallons()
+    /**
+     * Computes the gallons needed to be able to paint a bed room. Sends mLength, mHeight, mWidth,
+     * mDoors, and mWindows to the model and returns the value needed.
+     * @param view The computeButton button click that starts the activity.
+     */
+    public void computeGallons(View view)
     {
         // Update the model first, then calculate
         mRoom.setLength(Float.parseFloat(mLengthEditText.getText().toString()));
@@ -93,17 +122,26 @@ public class MainActivity extends AppCompatActivity {
         mRoom.setDoors(Integer.parseInt(mDoorsEditText.getText().toString()));
         mRoom.setWindows(Integer.parseInt(mWindowsEditText.getText().toString()));
 
-        mGallonsTextView.setText(getString(R.string.interior_surface_area_text) + mRoom.totalSurfaceArea()
-        + "\n" + getString(R.string.gallons_needed_text) + mRoom.gallonsOfPaintRequired());
+        mGallonsTextView.setText(getString(R.string.interior_surface_area_text)
+                + mRoom.totalSurfaceArea() + getString(R.string.feet) + "\n"
+                + getString(R.string.gallons_needed_text) + df.format(mRoom.gallonsOfPaintRequired()));
         saveSharedPreferences();
     }
 
-    protected void goToHelp(View v)
+    /**
+     * Sends the user to a help dialogue activity to further the users knowledge about painting
+     * rooms. Sends a string the amount of paint required.
+     * @param v The helpButton button click that starts the method.
+     */
+    public void goToHelp(View v)
     {
+        String estimatedGallons = getString(R.string.estimated_paint) + " "
+                + df.format(mRoom.gallonsOfPaintRequired()) + " " + getString(R.string.gallons_lower);
+
         // Construct an EXPLICIT Intent to go to HelpActivity
         // Intent: specify where to start (context) and where we're going (next Activity)
         Intent helpIntent = new Intent(this, HelpActivity.class);
-        helpIntent.putExtra("gallons", mRoom.gallonsOfPaintRequired());
+        helpIntent.putExtra("estimatedGallons", estimatedGallons);
         startActivity(helpIntent);
 
     }
