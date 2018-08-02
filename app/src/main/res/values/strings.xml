@@ -24,6 +24,11 @@
     <string name="estimated_paint">Estimated Paint Required:</string>
     <string name="gallons_lower">gallons</string>
 
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+
+
     <!-- HELP TEXT -->
     <string name="help_text">
         This paint job calculator computes the approximate number

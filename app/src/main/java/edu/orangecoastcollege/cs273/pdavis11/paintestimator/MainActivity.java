@@ -43,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initializeViews()
     {
-        mLengthEditText = (EditText) findViewById(R.id.lengthEditText);
-        mWidthEditText = (EditText) findViewById(R.id.widthEditText);
-        mHeightEditText = (EditText) findViewById(R.id.heightEditText);
-        mDoorsEditText = (EditText) findViewById(R.id.doorsEditText);
-        mWindowsEditText = (EditText) findViewById(R.id.windowsEditText);
-        mGallonsTextView = (TextView) findViewById(R.id.gallonsTextView);
+        mLengthEditText = findViewById(R.id.lengthEditText);
+        mWidthEditText = findViewById(R.id.widthEditText);
+        mHeightEditText = findViewById(R.id.heightEditText);
+        mDoorsEditText = findViewById(R.id.doorsEditText);
+        mWindowsEditText = findViewById(R.id.windowsEditText);
+        mGallonsTextView = findViewById(R.id.gallonsTextView);
 
     }
 
@@ -122,9 +122,13 @@ public class MainActivity extends AppCompatActivity {
         mRoom.setDoors(Integer.parseInt(mDoorsEditText.getText().toString()));
         mRoom.setWindows(Integer.parseInt(mWindowsEditText.getText().toString()));
 
-        mGallonsTextView.setText(getString(R.string.interior_surface_area_text)
-                + mRoom.totalSurfaceArea() + getString(R.string.feet) + "\n"
-                + getString(R.string.gallons_needed_text) + df.format(mRoom.gallonsOfPaintRequired()));
+        String gallonsText = getString(R.string.interior_surface_area_text)
+                + mRoom.totalSurfaceArea() + getString(R.string.feet)
+                + "\n"
+                + getString(R.string.gallons_needed_text)
+                + df.format(mRoom.gallonsOfPaintRequired());
+
+        mGallonsTextView.setText(gallonsText);
         saveSharedPreferences();
     }
 

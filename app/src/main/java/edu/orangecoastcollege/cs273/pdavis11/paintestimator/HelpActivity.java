@@ -29,7 +29,7 @@ public class HelpActivity extends AppCompatActivity {
         String estimatedPaint = intentFromMainAct.getStringExtra("estimatedGallons");
 
         // References to TextView
-        TextView mEstimatedPaintTextView = (TextView) findViewById(R.id.estimatedPaintTextView);
+        TextView mEstimatedPaintTextView = findViewById(R.id.estimatedPaintTextView);
 
         // Set TextViews
         mEstimatedPaintTextView.setText(estimatedPaint);
