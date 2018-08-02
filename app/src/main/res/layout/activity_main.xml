@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,7 +29,6 @@
         android:textSize="15sp"
         android:text="@string/enter_dimensions"
         android:layout_below="@+id/paintEstimatorBannerTextView"
-        android:layout_alignLeft="@+id/paintEstimatorBannerTextView"
         android:layout_alignStart="@+id/paintEstimatorBannerTextView" />
 
     <TextView
@@ -38,7 +36,6 @@
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_below="@+id/dimensionsBannerTextView"
-        android:layout_toLeftOf="@+id/lengthEditText"
         android:layout_toStartOf="@+id/lengthEditText"
         android:gravity="center"
         android:text="@string/length" />
@@ -47,7 +44,6 @@
         android:id="@+id/widthTextView"
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:layout_alignLeft="@+id/lengthTextView"
         android:layout_alignStart="@+id/lengthTextView"
         android:layout_below="@+id/lengthTextView"
         android:gravity="center"
@@ -57,7 +53,6 @@
         android:id="@+id/heightTextView"
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:layout_alignLeft="@+id/widthTextView"
         android:layout_alignStart="@+id/widthTextView"
         android:layout_below="@+id/lengthEditText"
         android:gravity="center"
@@ -76,7 +71,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/windowsEditText"
-        android:layout_alignLeft="@+id/windowsTextView"
         android:layout_alignStart="@+id/windowsTextView"
         android:text="@string/doors" />
 
@@ -85,7 +79,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/windowsEditText"
-        android:layout_alignLeft="@+id/computeButton"
         android:layout_alignStart="@+id/computeButton"
         android:text="@string/windows" />
 
@@ -104,7 +97,6 @@
         android:layout_height="45dp"
         android:layout_below="@+id/dimensionsBannerTextView"
         android:layout_toEndOf="@+id/lengthTextView"
-        android:layout_toRightOf="@+id/lengthTextView"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="" />
@@ -114,7 +106,6 @@
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_alignEnd="@+id/dimensionsBannerTextView"
-        android:layout_alignRight="@+id/dimensionsBannerTextView"
         android:layout_below="@+id/widthEditText"
         android:inputType="numberDecimal"
         android:text="" />
@@ -126,7 +117,6 @@
         android:layout_alignBaseline="@+id/heightTextView"
         android:layout_alignBottom="@+id/heightTextView"
         android:layout_toEndOf="@+id/widthTextView"
-        android:layout_toRightOf="@+id/widthTextView"
         android:ems="10"
         android:inputType="numberDecimal" />
 
@@ -135,7 +125,6 @@
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_above="@+id/windowsEditText"
-        android:layout_alignLeft="@+id/windowsEditText"
         android:layout_alignStart="@+id/windowsEditText"
         android:ems="10"
         android:inputType="number" />
@@ -146,10 +135,8 @@
         android:layout_height="45dp"
         android:layout_above="@+id/computeButton"
         android:layout_alignEnd="@+id/heightEditText"
-        android:layout_alignRight="@+id/heightEditText"
         android:layout_marginBottom="19dp"
         android:layout_marginEnd="9dp"
-        android:layout_marginRight="9dp"
         android:ems="10"
         android:inputType="number" />
 
@@ -157,11 +144,9 @@
         android:id="@+id/computeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/heightTextView"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/heightTextView"
         android:layout_marginBottom="94dp"
-        android:layout_marginLeft="23dp"
         android:layout_marginStart="23dp"
         android:onClick="computeGallons"
         android:text="@string/compute_button_text" />
@@ -172,11 +157,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/computeButton"
         android:layout_alignBottom="@+id/computeButton"
-        android:layout_marginLeft="9dp"
         android:layout_marginStart="9dp"
         android:layout_toEndOf="@+id/computeButton"
-        android:layout_toRightOf="@+id/computeButton"
         android:onClick="goToHelp"
         android:text="@string/help_button_text" />
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
