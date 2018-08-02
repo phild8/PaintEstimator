@@ -12,10 +12,9 @@ package edu.orangecoastcollege.cs273.pdavis11.paintestimator;
  */
 public class InteriorRoom {
 
-    public static final float DOOR_AREA = 21f;
-    public static final float WINDOW_AREA = 16f;
-    public static final float SQ_FEET_PER_GALLON = 275f;
-
+    private static final float DOOR_AREA = 21f;
+    private static final float WINDOW_AREA = 16f;
+    private static final float SQ_FEET_PER_GALLON = 275f;
 
     private float mLength;
     private float mWidth;
@@ -136,5 +135,29 @@ public class InteriorRoom {
     public float gallonsOfPaintRequired()
     {
         return totalSurfaceArea() / SQ_FEET_PER_GALLON;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof InteriorRoom)) return false;
+        InteriorRoom that = (InteriorRoom) o;
+        return Float.compare(that.mLength, mLength) == 0 &&
+                Float.compare(that.mWidth, mWidth) == 0 &&
+                Float.compare(that.mHeight, mHeight) == 0 &&
+                mDoors == that.mDoors &&
+                mWindows == that.mWindows;
+    }
+
+    @Override
+    public String toString() {
+        return "InteriorRoom{" +
+                "mLength=" + mLength +
+                ", mWidth=" + mWidth +
+                ", mHeight=" + mHeight +
+                ", mDoors=" + mDoors +
+                ", mWindows=" + mWindows +
+                '}';
     }
 }
