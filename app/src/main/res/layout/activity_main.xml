@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,45 +10,16 @@
 
 
     <TextView
-        android:id="@+id/paintEstimatorBannerTextView"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:text="@string/app_name" />
-
-    <TextView
-        android:id="@+id/dimensionsBannerTextView"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:textSize="15sp"
-        android:text="@string/enter_dimensions"
-        android:layout_below="@+id/paintEstimatorBannerTextView"
-        android:layout_alignStart="@+id/paintEstimatorBannerTextView" />
-
-    <TextView
         android:id="@+id/lengthTextView"
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_below="@+id/dimensionsBannerTextView"
+        android:layout_marginStart="8dp"
         android:layout_toStartOf="@+id/lengthEditText"
         android:gravity="center"
-        android:text="@string/length" />
-
-    <TextView
-        android:id="@+id/widthTextView"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_alignStart="@+id/lengthTextView"
-        android:layout_below="@+id/lengthTextView"
-        android:gravity="center"
-        android:text="@string/width" />
+        android:text="@string/length"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dimensionsBannerTextView" />
 
     <TextView
         android:id="@+id/heightTextView"
@@ -56,7 +28,9 @@
         android:layout_alignStart="@+id/widthTextView"
         android:layout_below="@+id/lengthEditText"
         android:gravity="center"
-        android:text="@string/height" />
+        android:text="@string/length"
+        app:layout_constraintStart_toStartOf="@+id/widthTextView"
+        app:layout_constraintTop_toBottomOf="@+id/widthTextView" />
 
     <TextView
         android:id="@+id/enterDoorWindowTextView"
@@ -64,7 +38,13 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/doorsEditText"
         android:layout_centerHorizontal="true"
-        android:text="@string/enter_door_window" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/enter_door_window"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heightTextView" />
 
     <TextView
         android:id="@+id/doorsTextView"
@@ -72,84 +52,64 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/windowsEditText"
         android:layout_alignStart="@+id/windowsTextView"
-        android:text="@string/doors" />
-
-    <TextView
-        android:id="@+id/windowsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/windowsEditText"
-        android:layout_alignStart="@+id/computeButton"
-        android:text="@string/windows" />
-
-    <TextView
-        android:id="@+id/gallonsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp"
-        android:text="@string/gallons" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/windows"
+        app:layout_constraintEnd_toStartOf="@+id/doorsEditText"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/windowsTextView" />
 
     <EditText
+        android:hint="@string/banner"
         android:id="@+id/widthEditText"
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_below="@+id/dimensionsBannerTextView"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/lengthTextView"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:text="" />
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toEndOf="@+id/widthTextView"
+        app:layout_constraintTop_toBottomOf="@+id/lengthEditText" />
 
     <EditText
-        android:id="@+id/lengthEditText"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_alignEnd="@+id/dimensionsBannerTextView"
-        android:layout_below="@+id/widthEditText"
-        android:inputType="numberDecimal"
-        android:text="" />
-
-    <EditText
-        android:id="@+id/heightEditText"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_alignBaseline="@+id/heightTextView"
-        android:layout_alignBottom="@+id/heightTextView"
-        android:layout_toEndOf="@+id/widthTextView"
-        android:ems="10"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/doorsEditText"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_above="@+id/windowsEditText"
-        android:layout_alignStart="@+id/windowsEditText"
-        android:ems="10"
-        android:inputType="number" />
-
-    <EditText
+        android:hint="@string/height"
         android:id="@+id/windowsEditText"
         android:layout_width="150sp"
         android:layout_height="45dp"
         android:layout_above="@+id/computeButton"
         android:layout_alignEnd="@+id/heightEditText"
-        android:layout_marginBottom="19dp"
-        android:layout_marginEnd="9dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/enterDoorWindowTextView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/enterDoorWindowTextView"
+        app:layout_constraintTop_toBottomOf="@+id/enterDoorWindowTextView" />
 
     <Button
         android:id="@+id/computeButton"
-        android:layout_width="wrap_content"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/heightTextView"
-        android:layout_marginBottom="94dp"
-        android:layout_marginStart="23dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:onClick="computeGallons"
-        android:text="@string/compute_button_text" />
+        android:text="@string/compute_button_text"
+        app:layout_constraintEnd_toStartOf="@+id/helpButton"
+        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doorsEditText" />
 
     <Button
         android:id="@+id/helpButton"
@@ -157,8 +117,131 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/computeButton"
         android:layout_alignBottom="@+id/computeButton"
-        android:layout_marginStart="9dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/computeButton"
         android:onClick="goToHelp"
-        android:text="@string/help_button_text" />
+        android:text="@string/help_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doorsEditText" />
+
+    <TextView
+        android:id="@+id/paintEstimatorBannerTextView"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:hint="@string/height"
+        android:id="@+id/lengthEditText"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_alignEnd="@+id/dimensionsBannerTextView"
+        android:layout_below="@+id/widthEditText"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:inputType="numberDecimal"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toEndOf="@+id/lengthTextView"
+        app:layout_constraintTop_toBottomOf="@+id/dimensionsBannerTextView" />
+
+    <EditText
+        android:hint="@string/doors"
+        android:id="@+id/doorsEditText"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_above="@+id/windowsEditText"
+        android:layout_alignStart="@+id/windowsEditText"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/windowsEditText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/windowsEditText"
+        app:layout_constraintTop_toBottomOf="@+id/windowsEditText" />
+
+    <TextView
+        android:id="@+id/widthTextView"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_alignStart="@+id/lengthTextView"
+        android:layout_below="@+id/lengthTextView"
+        android:gravity="center"
+        android:text="@string/width"
+        app:layout_constraintStart_toStartOf="@+id/lengthTextView"
+        app:layout_constraintTop_toBottomOf="@+id/lengthTextView" />
+
+    <TextView
+        android:id="@+id/dimensionsBannerTextView"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/paintEstimatorBannerTextView"
+        android:layout_below="@+id/paintEstimatorBannerTextView"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:text="@string/enter_dimensions"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paintEstimatorBannerTextView" />
+
+    <TextView
+        android:id="@+id/windowsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_alignBottom="@+id/windowsEditText"
+        android:layout_alignStart="@+id/computeButton"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/windows"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterDoorWindowTextView" />
+
+    <TextView
+        android:id="@+id/gallonsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/gallons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/helpButton"
+        app:layout_constraintStart_toStartOf="@+id/computeButton"
+        app:layout_constraintTop_toBottomOf="@+id/computeButton" />
+
+    <EditText
+        android:hint="@string/height"
+        android:id="@+id/heightEditText"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_alignBaseline="@+id/heightTextView"
+        android:layout_alignBottom="@+id/heightTextView"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/widthTextView"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toEndOf="@+id/heightTextView"
+        app:layout_constraintTop_toBottomOf="@+id/widthEditText" />
 </android.support.constraint.ConstraintLayout>

@@ -17,14 +17,14 @@
     <string name="gallons">Gallons</string>
     <string name="return_btn">Input Room Dimensions</string>
 
-    <string name="interior_surface_area_text">Interior surface area:</string>
-    <string name="feet">feet</string>
-    <string name="gallons_needed_text">Gallons needed:</string>
+    <string name="interior_surface_area_text">Interior surface area: </string>
+    <string name="feet"> feet</string>
+    <string name="gallons_needed_text">Gallons needed: </string>
 
     <string name="estimated_paint">Estimated Paint Required:</string>
     <string name="gallons_lower">gallons</string>
 
-    <string name="test1">1</string>
+    <string name="banner">Banner</string>
     <string name="test2">2</string>
     <string name="test3">3</string>
 

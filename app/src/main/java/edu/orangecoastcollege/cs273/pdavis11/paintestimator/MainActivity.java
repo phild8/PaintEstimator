@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt("windows", mRoom.getWindows());
 
         // Save the changes to the SharedPreferences
-        editor.commit();
+        editor.apply();
     }
 
     /**
